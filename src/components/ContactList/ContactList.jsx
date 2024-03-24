@@ -4,11 +4,11 @@ import css from "./ContactList.module.css";
 import { selectVisibleContacts } from "../../redux/contactsSlice";
 
 export default function ContactList() {
-  const contacts = useSelector(selectVisibleContacts);
+  const contactsV = useSelector(selectVisibleContacts);
 
   return (
     <ul className={css.list}>
-      {contacts.map((contact) => {
+      {contactsV.map((contact) => {
         return (
           <li className={css.listItem} key={contact.id}>
             <Contact data={contact}></Contact>

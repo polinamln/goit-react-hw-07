@@ -1,5 +1,4 @@
 import { createSlice } from "@reduxjs/toolkit";
-// import { createSelector } from "@reduxjs/toolkit/dist";
 
 const filtersSlice = createSlice({
   name: "filters",
