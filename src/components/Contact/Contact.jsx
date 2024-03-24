@@ -7,7 +7,6 @@ import { deleteContact } from "../../redux/contactsOps";
 export default function Contact({ data }) {
   const dispatch = useDispatch();
 
-  // console.log(data.id);
   return (
     <div className={css.contact}>
       <div>
