@@ -3,6 +3,7 @@ import { BsPersonHearts } from "react-icons/bs";
 import { FaPhoneSquareAlt } from "react-icons/fa";
 import { useDispatch } from "react-redux";
 import { deleteContact } from "../../redux/contactsOps";
+import toast from "react-hot-toast";
 
 export default function Contact({ data }) {
   const dispatch = useDispatch();
@@ -22,7 +23,21 @@ export default function Contact({ data }) {
       </div>
 
       <button
-        onClick={() => dispatch(deleteContact(data.id))}
+        onClick={() =>
+          dispatch(deleteContact(data.id))
+            .unwrap()
+            .then(() => {
+              toast(
+                "The contact has been successfully removed from the list!",
+                {
+                  icon: "📵",
+                }
+              );
+              // toast.success(
+              //   "The contact has been successfully removed from the list!"
+              // );
+            })
+        }
         className={css.button}
       >
         Delete

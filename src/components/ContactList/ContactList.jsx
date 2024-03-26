@@ -8,13 +8,15 @@ export default function ContactList() {
 
   return (
     <ul className={css.list}>
-      {contactsV.map((contact) => {
-        return (
+      {contactsV.length === 0 ? (
+        <h3>No contacts available.</h3>
+      ) : (
+        contactsV.map((contact) => (
           <li className={css.listItem} key={contact.id}>
             <Contact data={contact}></Contact>
           </li>
-        );
-      })}
+        ))
+      )}
     </ul>
   );
 }

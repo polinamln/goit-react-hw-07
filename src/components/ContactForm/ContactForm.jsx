@@ -4,6 +4,7 @@ import * as Yup from "yup";
 import css from "./ContactForm.module.css";
 import { useDispatch } from "react-redux";
 import { addContact } from "../../redux/contactsOps";
+import toast from "react-hot-toast";
 
 export default function ContactForm() {
   const idName = nanoid();
@@ -33,7 +34,13 @@ export default function ContactForm() {
             number: e.number,
             id: nanoid(),
           })
-        );
+        )
+          .unwrap()
+          .then(() => {
+            toast.success(
+              "The contact has been successfully added to the list!"
+            );
+          });
         resetForm();
       }}
     >
