@@ -6,6 +6,5 @@ export const store = configureStore({
   reducer: {
     contacts: contactsSlice,
     filters: filtersSlice,
-    whitelist: ["items"],
   },
 });
